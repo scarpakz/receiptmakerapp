@@ -2,5 +2,5 @@ from django.shortcuts import render
 from django.http import HttpResponse
 from django.views import generic
 
-# class IndexView(generic.View):
-#
+def index(request):
+    return render(request, 'dashboard/index.html')
