@@ -7,7 +7,7 @@ class ReceiptModel(models.Model):
     purchaser = models.CharField(max_length=250, default="")
     notes = models.TextField(default="")
     quantity = models.IntegerField()
-    hst = models.FloatField(max_length=2)
+    hst = models.FloatField(max_length=2, default=15)
     total = models.FloatField(max_length=100, default=0)
     date_added = models.DateTimeField(auto_now=True)
 

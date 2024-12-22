@@ -45,12 +45,77 @@
                         <div class="form-floating mb-3">
                             <textarea name="notes" id="notesId" cols="60" rows="10" placeholder="Other notes"></textarea>
                         </div>
+                        <button class="btn btn-primary">Review Information</button>
+                        <input class="btn btn-success" type="submit" value="Convert to PDF">
+                        <button class="btn btn-danger" id="resetBtnId">Reset</button>
                     </form>
-                    <button class="btn btn-primary">Review</button>
+                </div>
+                <div class="col-md-6 col-sm-12" id="reviewId">
+
                 </div>
             </div>
         </div>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+    <script>
+        function reviewInformation() {
+            const company = document.getElementById('companyId').value;
+            const purchaser = document.getElementById('purchaserId').value;
+            const product = document.getElementById('productId').value;
+            const price = parseFloat(document.getElementById('priceId').value);
+            const quantity = parseInt(document.getElementById('quantityId').value, 10);
+            const hst = (price * quantity * 0.15).toFixed(2);
+            const notes = document.getElementById('notesId').value;
+            const total = (price * quantity) + Number(hst)
+
+            const reviewHtml = `
+                <h1>Review Information</h1>
+                <div class="mt-5">
+                    <h5>Issuing Company</h5>
+                    <p>${company}</p>
+                </div>
+                <div class="mt-1">
+                    <h5>Purchaser</h5>
+                    <p>${purchaser}</p>
+                </div>
+                <div class="mt-1">
+                    <h5>Product Name</h5>
+                    <p>${product}</p>
+                </div>
+                <div class="mt-1">
+                    <h5>Price</h5>
+                    <p>$${price.toFixed(2)}</p>
+                </div>
+                <div class="mt-1">
+                    <h5>Quantity</h5>
+                    <p>${quantity}</p>
+                </div>
+                <div class="mt-1">
+                    <h5>HST: 15%</h5>
+                    <p>$${hst}</p>
+                </div>
+                <div>
+                    <h4>Total</h4>
+                    <p>$${total}</p>
+                </div>
+                <div class="mt-1">
+                    <h5>Other Notes:</h5>
+                    <p>${notes}</p>
+                </div>`;
+
+            const reviewContainer = document.getElementById('reviewId');
+            reviewContainer.innerHTML = reviewHtml;
+        }
+
+        document.querySelector('.btn-primary').addEventListener('click', function(event) {
+            event.preventDefault(); // Prevent form submission
+            reviewInformation();
+        });
+
+        document.getElementById("resetBtnId").addEventListener('click', function(event) {
+            window.location.reload()
+        })
+
+    </script>
     </body>
 </html>
