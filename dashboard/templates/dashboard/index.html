@@ -7,8 +7,50 @@
               content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
         <meta http-equiv="X-UA-Compatible" content="ie=edge">
         <title>Receipt Generator</title>
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+        <link rel="stylesheet" href="{% static 'dashboard/style.css' %}">
     </head>
     <body>
+        <div class="container">
+            <div class="row r-form-container">
+                <div class="col-md-6 col-sm-12">
+                    <h1>Receipt Generator</h1>
+                    <p>This receipt generator converts the information given below into actual PDF file. This is not an official receipt but just temporary.</p>
+                    <form action="" class="form-floating mt-3">
+                        <div class="form-floating mb-3">
+                            <input required="" type="text" class="form-control" id="companyId" placeholder="Your company name">
+                            <label for="companyId">Issuing Company</label>
+                        </div>
+                        <div class="form-floating mb-3">
+                            <input required="" type="text" class="form-control" id="purchaserId" placeholder="Purchaser">
+                            <label for="purchaserId">Purchaser</label>
+                        </div>
+                        <div class="form-floating mb-3">
+                            <input required="" type="text" class="form-control" id="productId" placeholder="Your product name">
+                            <label for="productId">Product Name</label>
+                        </div>
+                        <div class="form-floating mb-3">
+                            <input required="" type="number" class="form-control" id="priceId" placeholder="Price">
+                            <label for="priceId">Price</label>
+                        </div>
+                        <div class="form-floating mb-3">
+                            <input required="" type="number" class="form-control" id="quantityId" placeholder="Quantity">
+                            <label for="quantityId">Quantity</label>
+                        </div>
+                        <div class="form-floating mb-3">
+                            <input disabled type="number" class="form-control" id="hstId" placeholder="HST">
+                            <label for="hstId">HST: 15%</label>
+                        </div>
 
+                        <div class="form-floating mb-3">
+                            <textarea name="notes" id="notesId" cols="60" rows="10" placeholder="Other notes"></textarea>
+                        </div>
+                    </form>
+                    <button class="btn btn-primary">Review</button>
+                </div>
+            </div>
+        </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
     </body>
 </html>

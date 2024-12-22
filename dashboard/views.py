@@ -1,6 +1,10 @@
 from django.shortcuts import render
-from django.http import HttpResponse
-from django.views import generic
 
 def index(request):
     return render(request, 'dashboard/index.html')
+
+def create_pdf(request):
+    return None
+
+def create_receipt_view(request):
+    return None
