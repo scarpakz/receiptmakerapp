@@ -13,12 +13,3 @@ class ReceiptModel(models.Model):
 
     def __str__(self):
         return self.company
-
-    def calculate_total_price_without_tax(self):
-        return self.price * self.quantity
-
-    def calculate_tax(self):
-        return self.calculate_total_price_without_tax() * (self.hst/100.0)
-
-    def calculate_total_price_with_tax(self):
-        return self.calculate_total_price_without_tax() * self.calculate_tax()
